@@ -6,6 +6,7 @@ interface SearchBarProps {
 
 function SearchBar({ onSearch }: SearchBarProps) {
   const [city, setCity] = useState<string>("");
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -13,6 +14,7 @@ function SearchBar({ onSearch }: SearchBarProps) {
     setError("Please enter a city name");
     return;
     }
+       setError(null);
   };
 
   return (
@@ -24,6 +26,7 @@ function SearchBar({ onSearch }: SearchBarProps) {
         onChange={(e) => setCity(e.target.value)}
       />
       <button type="submit">Search</button>
+        {error && <p className="error">{error}</p>}
     </form>
   );
 }
