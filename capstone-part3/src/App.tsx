@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import WeatherCard from "./components/WeatherCard"
 
 interface WeatherData {
   name: string;
