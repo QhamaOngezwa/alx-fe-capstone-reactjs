@@ -22,11 +22,13 @@ function WeatherCard({ weather }: WeatherCardProps) {
     <div>
       <h2>{weather.name}</h2>
       <p>Temperature: {weather.main.temp}°C</p>
-      <p>Condition: {weather.weather[0].description}</p>
+    <p>
+  Condition: {weather.weather[0]?.description ?? "No condition available"}
+</p>
       <p>Humidity: {weather.main.humidity}%</p>
       <p>Wind Speed: {weather.wind.speed} m/s</p>
 
-      <HumanMessage weather={weather} />
+      <FriendlyMessage weather={weather} />
     </div>
   );
 }
