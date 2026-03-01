@@ -40,7 +40,7 @@ function App() {
       const data: WeatherData = await response.json();
       setWeather(data);
     } catch (err) {
-      setError("Could not find that city");
+      setError("Could not find city");
       setWeather(null);
     } finally {
       setLoading(false);
