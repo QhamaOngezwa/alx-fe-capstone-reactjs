@@ -1,6 +1,7 @@
 import { useState } from "react";
 import WeatherCard from "./components/WeatherCard"
 import SearchBar from "./components/SearchBar"
+import ErrorMessage from "./components/ErrorMessage"
 
 interface WeatherData {
   name: string;
