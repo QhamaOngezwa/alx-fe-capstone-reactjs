@@ -1,11 +1,27 @@
-import { useState } from react
+import { useState } from "react";
+
+
+interface WeatherData {
+  name: string;
+  main: {
+    temp: number;
+    humidity: number;
+  };
+  weather: {
+    main: string;
+    description: string;
+  }[];
+  wind: {
+    speed: number;
+  };
+}
 
 function App() {
-  const [weather, setWeather] = useState(null);
-  const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [weather, setWeather] = useState<WeatherData | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string>("");
 
-  const fetchWeather = async (city) => {
+  const fetchWeather = async (city: string) => {
     setLoading(true);
     setError("");
 
@@ -18,10 +34,10 @@ function App() {
         throw new Error("City not found");
       }
 
-      const data = await response.json();
+      const data: WeatherData = await response.json();
       setWeather(data);
     } catch (err) {
-      setError(err.message);
+      setError("Could not find that city");
       setWeather(null);
     } finally {
       setLoading(false);
@@ -29,12 +45,12 @@ function App() {
   };
 
   return (
-    <div className="app">
+    <div>
       <h1>Weather Forecast ☁️</h1>
 
       <SearchBar onSearch={fetchWeather} />
 
-      {loading && <p>Loading weather...</p>}
+      {loading && <p>Loading...</p>}
       {error && <ErrorMessage message={error} />}
       {weather && <WeatherCard weather={weather} />}
     </div>
