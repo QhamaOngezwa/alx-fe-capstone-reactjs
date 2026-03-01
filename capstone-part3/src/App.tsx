@@ -48,8 +48,8 @@ function App() {
   };
 
   return (
-    <div>
-      <h1>Weather Forecast ☁️</h1>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-4">
+      <h1 className="text-3xl font-bold mb-6 text-gray-800">Weather Forecast ☁️🌍</h1>
 
       <SearchBar onSearch={fetchWeather} />
 
