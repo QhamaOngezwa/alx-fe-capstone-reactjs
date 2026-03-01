@@ -9,8 +9,9 @@ function SearchBar({ onSearch }: SearchBarProps) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (city.trim() !== "") {
-      onSearch(city);
+   if (!city.trim()) {
+    setError("Please enter a city name");
+    return;
     }
   };
 
