@@ -1,4 +1,4 @@
-import FriendlyMessage from "./components/FriendlyMessage"
+import FriendlyMessage from "./FriendlyMessage"
 
 interface WeatherCardProps {
   weather: {
