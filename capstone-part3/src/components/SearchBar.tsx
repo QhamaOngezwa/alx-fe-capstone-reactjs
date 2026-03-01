@@ -15,10 +15,11 @@ function SearchBar({ onSearch }: SearchBarProps) {
     return;
     }
        setError(null);
+       onSearch(city);
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form id="search-city-form" onSubmit={handleSubmit}>
       <input
         type="text"
         placeholder="Enter city"
