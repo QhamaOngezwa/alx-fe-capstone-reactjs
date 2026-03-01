@@ -28,8 +28,9 @@ function App() {
     setError("");
 
     try {
+      const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
       const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=b427fed952a6f0fafd05d6392d42f197`
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${API_KEY}`
       );
 
       if (!response.ok) {
