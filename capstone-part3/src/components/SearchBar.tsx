@@ -26,7 +26,7 @@ function SearchBar({ onSearch }: SearchBarProps) {
         value={city}
         onChange={(e) => setCity(e.target.value)}
       />
-      <button className = "color:blue" type="submit">Search</button>
+      <button type="submit">Search</button>
         {error && <p className="error">{error}</p>}
     </form>
   );
